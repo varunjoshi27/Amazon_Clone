@@ -210,7 +210,10 @@ footer {
     justify-content: center;
     font-size: 0.85rem;
 }
-
+.foot-pannel1 a{
+    text-decoration: none;
+    color: white;
+}
 /* Panel 2: Footer Links */
 .foot-pannel2 {
     background-color: #222F3D;

@@ -61,7 +61,7 @@
         </div>
 
         <div class="pannel">
-            <div class="pannel-all">
+            <div class="pannel-all" id="hamburger-btn">
                 <i class="fa-solid fa-bars"></i>
                 All
             </div>
@@ -80,6 +80,53 @@
             </div>
         </div>
     </header>
+
+    <!-- Hamburger Menu Sidebar -->
+    <div class="sidebar-overlay" id="sidebar-overlay"></div>
+    <div class="sidebar" id="sidebar">
+        <div class="sidebar-header">
+            <div class="sidebar-user">
+                <i class="fa-solid fa-user-circle"></i>
+                <span>Hello, Sign In</span>
+            </div>
+            <div class="sidebar-close" id="sidebar-close">
+                <i class="fa-solid fa-times"></i>
+            </div>
+        </div>
+        <div class="sidebar-content">
+            <div class="sidebar-section">
+                <h3>Shop By Department</h3>
+                <ul>
+                    <li><a href="#">Electronics</a></li>
+                    <li><a href="#">Computers</a></li>
+                    <li><a href="#">Smart Home</a></li>
+                    <li><a href="#">Arts & Crafts</a></li>
+                    <li><a href="#">Automotive</a></li>
+                    <li><a href="#">Baby</a></li>
+                    <li><a href="#">Beauty & Personal Care</a></li>
+                    <li><a href="#">Books</a></li>
+                </ul>
+            </div>
+            <div class="sidebar-section">
+                <h3>Programs & Features</h3>
+                <ul>
+                    <li><a href="#">Gift Cards</a></li>
+                    <li><a href="#">Amazon Live</a></li>
+                    <li><a href="#">International Shopping</a></li>
+                    <li><a href="#">Amazon Second Chance</a></li>
+                </ul>
+            </div>
+            <div class="sidebar-section">
+                <h3>Help & Settings</h3>
+                <ul>
+                    <li><a href="#">Your Account</a></li>
+                    <li><a href="#">Customer Service</a></li>
+                    <li><a href="#">Sign Out</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
     <div class="hero-section">
         <div class="hero-msg">
             <p>
@@ -244,6 +291,35 @@
             </div>
         </div>
     </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const hamburgerBtn = document.getElementById('hamburger-btn');
+            const sidebar = document.getElementById('sidebar');
+            const sidebarClose = document.getElementById('sidebar-close');
+            const overlay = document.getElementById('sidebar-overlay');
+
+            hamburgerBtn.addEventListener('click', function () {
+                sidebar.classList.add('active');
+                overlay.classList.add('active');
+                document.body.style.overflow = 'hidden'; // Prevent scrolling when sidebar is open
+            });
+
+            sidebarClose.addEventListener('click', function () {
+                closeSidebar();
+            });
+
+            overlay.addEventListener('click', function () {
+                closeSidebar();
+            });
+
+            function closeSidebar() {
+                sidebar.classList.remove('active');
+                overlay.classList.remove('active');
+                document.body.style.overflow = ''; // Re-enable scrolling
+            }
+        });
+    </script>
 </body>
 
 </html>
